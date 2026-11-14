@@ -1,0 +1,216 @@
+{
+  "synthetic": false,
+  "args": {
+    "delbot": "data/DELBOT-Mouse/python/sessions.json",
+    "capycap": "data/CaptchaSolve30k/validation.jsonl",
+    "collected": null,
+    "synthetic": false,
+    "final": "mixed",
+    "model": "random_forest",
+    "max_capycap": 3000,
+    "screen": [
+      1920,
+      1080
+    ],
+    "delbot_layout": "auto",
+    "capycap_canvas": null,
+    "capycap_field": null,
+    "capycap_fmt": null,
+    "capycap_stride": null,
+    "capycap_source": "ticks",
+    "capycap_include_touch": false,
+    "no_augment": false,
+    "windows": 3,
+    "human_low_q": 0.9,
+    "human_high_q": 0.99,
+    "seed": 0,
+    "out": "artifacts",
+    "report": "reports"
+  },
+  "model_comparison": {
+    "logreg": {
+      "delbot_only": {
+        "auc": 0.969108577165806,
+        "ap": 0.9890700037266653,
+        "tpr@fpr1%": 0.7891566265060241,
+        "tpr@fpr5%": 0.8765060240963856,
+        "n": 916
+      },
+      "in_domain_all_bots": {
+        "auc": 0.9746949261400127,
+        "ap": 0.9929414171763449,
+        "tpr@fpr1%": 0.8046242774566474,
+        "tpr@fpr5%": 0.8959537572254336,
+        "n": 1117
+      }
+    },
+    "random_forest": {
+      "delbot_only": {
+        "auc": 0.9901451042264295,
+        "ap": 0.996653360348734,
+        "tpr@fpr1%": 0.9292168674698795,
+        "tpr@fpr5%": 0.9653614457831325,
+        "n": 916
+      },
+      "in_domain_all_bots": {
+        "auc": 0.9924121479034774,
+        "ap": 0.9979743628976797,
+        "tpr@fpr1%": 0.9445086705202312,
+        "tpr@fpr5%": 0.9734104046242774,
+        "n": 1117
+      }
+    },
+    "hist_gb": {
+      "delbot_only": {
+        "auc": 0.9920634920634921,
+        "ap": 0.9971867096048126,
+        "tpr@fpr1%": 0.9246987951807228,
+        "tpr@fpr5%": 0.9563253012048193,
+        "n": 916
+      },
+      "in_domain_all_bots": {
+        "auc": 0.9937608954949995,
+        "ap": 0.9982740255670932,
+        "tpr@fpr1%": 0.9398843930635838,
+        "tpr@fpr5%": 0.9653179190751445,
+        "n": 1117
+      }
+    }
+  },
+  "source_leakage_auc": 0.9997739620919912,
+  "leave_one_bot_type_out": [
+    {
+      "held_out_bot_type": "circles_bot_gan",
+      "n": 380,
+      "not_low": 1.0,
+      "high": 0.16842105263157894
+    },
+    {
+      "held_out_bot_type": "circles_bot_naturalmousemotion",
+      "n": 132,
+      "not_low": 0.9621212121212122,
+      "high": 0.015151515151515152
+    },
+    {
+      "held_out_bot_type": "circles_bot_pyhm",
+      "n": 12,
+      "not_low": 0.75,
+      "high": 0.08333333333333333
+    },
+    {
+      "held_out_bot_type": "circles_bot_pynput",
+      "n": 140,
+      "not_low": 0.42857142857142855,
+      "high": 0.30714285714285716
+    },
+    {
+      "held_out_bot_type": "syn_bezier",
+      "n": 57,
+      "not_low": 1.0,
+      "high": 0.22807017543859648
+    },
+    {
+      "held_out_bot_type": "syn_naive",
+      "n": 30,
+      "not_low": 1.0,
+      "high": 1.0
+    },
+    {
+      "held_out_bot_type": "syn_naive_dense",
+      "n": 57,
+      "not_low": 1.0,
+      "high": 0.8947368421052632
+    },
+    {
+      "held_out_bot_type": "syn_noisy_bezier",
+      "n": 57,
+      "not_low": 1.0,
+      "high": 0.7543859649122807
+    }
+  ],
+  "thresholds": {
+    "low": 0.02,
+    "high": 0.5246150120004626
+  },
+  "tier_rates_humans": [
+    {
+      "g": "capycap",
+      "low": 0.98,
+      "medium": 0.02,
+      "high": 0.0,
+      "n": 1718
+    },
+    {
+      "g": "delbot",
+      "low": 0.591,
+      "medium": 0.357,
+      "high": 0.052,
+      "n": 252
+    }
+  ],
+  "tier_rates_bots": [
+    {
+      "g": "circles_bot_gan",
+      "low": 0.0,
+      "medium": 0.0,
+      "high": 1.0,
+      "n": 380
+    },
+    {
+      "g": "circles_bot_naturalmousemotion",
+      "low": 0.045,
+      "medium": 0.068,
+      "high": 0.886,
+      "n": 132
+    },
+    {
+      "g": "circles_bot_pyhm",
+      "low": 0.0,
+      "medium": 0.25,
+      "high": 0.75,
+      "n": 12
+    },
+    {
+      "g": "circles_bot_pynput",
+      "low": 0.014,
+      "medium": 0.086,
+      "high": 0.9,
+      "n": 140
+    },
+    {
+      "g": "syn_bezier",
+      "low": 0.0,
+      "medium": 0.0,
+      "high": 1.0,
+      "n": 57
+    },
+    {
+      "g": "syn_naive",
+      "low": 0.0,
+      "medium": 0.0,
+      "high": 1.0,
+      "n": 30
+    },
+    {
+      "g": "syn_naive_dense",
+      "low": 0.0,
+      "medium": 0.0,
+      "high": 1.0,
+      "n": 57
+    },
+    {
+      "g": "syn_noisy_bezier",
+      "low": 0.0,
+      "medium": 0.0,
+      "high": 1.0,
+      "n": 57
+    },
+    {
+      "g": "syn_replay",
+      "low": 0.392,
+      "medium": 0.399,
+      "high": 0.209,
+      "n": 148
+    }
+  ]
+}

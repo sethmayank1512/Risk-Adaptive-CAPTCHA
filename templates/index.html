@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risk-adaptive CAPTCHA demo</title>
+<style>
+  body{font-family:Helvetica,Arial,sans-serif;background:#f6f4ef;display:flex;justify-content:center;padding:60px 12px}
+  .card{background:#fff;padding:32px;border-radius:12px;border:1px solid #e3e0d8;width:360px}
+  h1{font-size:22px;margin:0 0 20px}
+  input[type=text]{width:100%;padding:10px;margin:6px 0 14px;box-sizing:border-box;font-size:16px}
+  button{padding:10px 16px;font-size:16px;cursor:pointer}
+  .ok{color:#1b7f5c}.err{color:#b3261e}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .banner{background:#fff4d6;border:1px solid #e8d48b;padding:8px 10px;border-radius:8px;font-size:13px;margin-bottom:14px}
+  .note{color:#666;font-size:12px;margin-top:16px}
+  pre#debug{background:#14213d;color:#d9e4ff;padding:10px;border-radius:8px;font-size:12px;white-space:pre-wrap;margin-top:14px}
+  #tierlabel{font-size:13px;color:#555;margin:0 0 8px}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Sign in</h1>
+  {% if banner %}<div class="banner">{{ banner }}</div>{% endif %}
+  <label for="username">Username</label>
+  <input type="text" id="username" autocomplete="off" maxlength="64">
+  <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" id="website" tabindex="-1" autocomplete="off"></label></div>
+  <div id="capbox" hidden>
+    <p id="tierlabel"></p>
+    <label for="capans">Enter the characters shown</label><br>
+    <img id="cap" alt="CAPTCHA" src="">
+    <p><a href="#" id="refresh">Refresh image</a></p>
+    <input type="text" id="capans" autocomplete="off">
+  </div>
+  <button id="go" type="button">Continue</button>
+  <button id="submit" type="button" hidden>Submit</button>
+  <p id="msg" role="status"></p>
+  <pre id="debug" hidden></pre>
+  <p class="note">To decide how much verification is needed we use anonymous mouse/keyboard <em>timing</em> on this page. We never record which keys you press or what you type.</p>
+  <noscript><p class="err">JavaScript is required for verification.</p></noscript>
+</div>
+<script>window.__LABEL = {{ collect_label|tojson }};</script>
+<script src="{{ url_for('static', filename='collector.js') }}"></script>
+</body>
+</html>
