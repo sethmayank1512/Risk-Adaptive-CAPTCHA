@@ -24,10 +24,6 @@ python app.py
 
 
 
-## Layout
-`app.py` · `risk/{features,model,engine,challenges}.py` · `static/collector.js` · `templates/index.html` ·
-`training/{loaders,synth,train,inspect_data}.py` · `tools/{bots,summarize_collected}.py` · `tests/`
-
 
 ## Datasets (not included in this repository)
 - DELBOT-Mouse: https://github.com/chrisgdt/DELBOT-Mouse (Apache 2.0)
